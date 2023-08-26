@@ -2,6 +2,7 @@
 import time
 import hashlib
 import random
+import statistics
 
 def hashcash(target):
     pow = ""
@@ -22,9 +23,9 @@ def hashcashTime(target):
     return end - start
 
 N = 100
-TARGET = 2**240
+TARGET = 2**237
 time_list = []
 for i in range(N):
-    time_list.append(hashcashTime(2**240))
-ave = time_list.mean()
+    time_list.append(hashcashTime(TARGET))
+ave = statistics.mean(time_list)
 print(ave)
